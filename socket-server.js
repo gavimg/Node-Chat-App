@@ -3,6 +3,9 @@ const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 
+const port = process.env.PORT || 9000;
+
+
 app.get("/", (req, res)=>{
     res.sendFile(__dirname+"/public/socket-client.html")
 })
@@ -22,6 +25,6 @@ io.on("connection", client => {
     })
 })
 
-server.listen(9000, () => {
+server.listen(port, () => {
     console.log("Socket server started at port : 9000")
 })

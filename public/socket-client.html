@@ -63,7 +63,7 @@
     <script>
         $(document).ready(() => {
             const chatterName = prompt("Please enter your name")
-            const socket = io.connect("http://localhost:9000");
+            const socket = io.connect("/");
             socket.on("acknowledge", (result) => {
                 console.log("Server says : " + result.data);
                 $(".toast").toast('show', { delay: 3000, animation: true, autohide: true })
